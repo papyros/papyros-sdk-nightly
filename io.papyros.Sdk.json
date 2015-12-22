@@ -1,0 +1,56 @@
+{
+    "app-id": "io.papyros.Sdk",
+    "branch": "master",
+    "runtime": "org.freedeskop.Platform",
+    "runtime-version": "1.2",
+    "writable-sdk": true,
+    "sdk": "org.freedesktop.Sdk",
+    "finish-args": ["--no-exports", "--share=ipc", "--socket=x11", "--socket=pulseaudio", "--filesystem=host" ],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "prefix": "/usr",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": [],
+    "modules": [
+        {
+            "name": "wayland-protocols",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/wayland/wayland-protocols"
+                }
+            ]
+        },
+        {
+            "name": "qt5",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://code.qt.io/qt/qt5.git"
+                }
+            ]
+        }
+        {
+            "name": "qml-material",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/papyros/qml-material.git"
+                }
+            ]
+        },
+        {
+            "name": "paper-icon-theme",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/snwh/paper-icon-theme.git"
+                }
+            ]
+        }
+    ]
+}
