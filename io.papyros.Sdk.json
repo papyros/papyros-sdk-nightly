@@ -1,20 +1,41 @@
 {
-    "app-id": "io.papyros.Sdk",
+    "build-runtime": true,
+    "id": "io.papyros.Sdk",
+    "id-platform": "io.papyros.Platform",
     "branch": "master",
-    "runtime": "org.freedeskop.Platform",
+    "runtime": "org.freedesktop.Platform",
+    "sdk": "org.freedesktop.Sdk",
+    "initial-debug": "org.freedesktop.Debug",
     "runtime-version": "1.2",
     "writable-sdk": true,
-    "sdk": "org.freedesktop.Sdk",
-    "finish-args": ["--no-exports", "--share=ipc", "--socket=x11", "--socket=pulseaudio", "--filesystem=host" ],
+    "sdk-extensions": ["org.freedesktop.Debug", "org.freedesktop.Sdk.Locale"],
+    "platform-extensions": ["org.freedesktop.Platform.Locale"],
+    "metadata": "metadata.sdk",
+    "metadata-platform": "metadata.platform",
+    "cleanup": [ "/cache",
+                 "/man",
+                 "/share/man",
+                 "/share/gtk-doc",
+                 "/share/devhelp",
+                 "/lib/systemd",
+                 "*.la", "*.a"],
+    "cleanup-commands": [ "touch -d @0 /usr/share/fonts",
+                          "touch -d @0 /usr/share/fonts/*"
+                          "fc-cache -fs"
+                        ],
+    "cleanup-platform": [ "/include",
+                          "/share/aclocal",
+                          "/share/pkgconfig",
+                          "/lib/pkgconfig",
+                          "/share/vala"
+                        ],
     "build-options" : {
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g",
-        "prefix": "/usr",
         "env": {
             "V": "1"
         }
     },
-    "cleanup": [],
     "modules": [
         {
             "name": "wayland-protocols",
@@ -30,7 +51,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://code.qt.io/qt/qt5.git"
+                    "url": "git://code.qt.io/qt/qt5.git",
+                    "branch": "5.5"
                 }
             ]
         }
