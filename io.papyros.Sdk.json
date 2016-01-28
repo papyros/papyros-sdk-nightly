@@ -47,12 +47,133 @@
             ]
         },
         {
+            "name": "pango",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/pango"
+                }
+            ]
+        },
+        {
+            "name": "atk",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/atk"
+                }
+            ]
+        },
+        {
+            "name": "gdk-pixbuf",
+            "config-opts": [ "--with-x11",
+                             "--without-libjasper",
+                             "--with-included-loaders=png"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gdk-pixbuf"
+                }
+            ]
+        },
+        {
+            "name": "gtk2",
+            "config-opts": ["--disable-gtk-doc",
+                            "--disable-man",
+                            "--with-xinput=xfree"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gtk+",
+                    "branch": "gtk-2-24"
+                }
+            ]
+        }
+        {
             "name": "qt5",
+            "config-opts": [
+                "-confirm-license", "-opensource", "-plugin-sql-sqlite", "-system-sqlite",
+                "-openssl-linked", "-nomake", "examples", "-no-rpath", "-optimized-qmake",
+                "-dbus-linked", "-system-harfbuzz"
+            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "git://code.qt.io/qt/qt5.git",
                     "branch": "5.5"
+                }
+            ]
+        },
+        {
+            "name": "extra-cmake-modules",
+            "cmake": true,
+            "config-opts": [
+                "-DCMAKE_INSTALL_PREFIX=/usr", "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_HTML_DOCS=OF", "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.kde.org/extra-cmake-modules.git"
+                }
+            ]
+        },
+        {
+            "name": "kconfig",
+            "cmake": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_INSTALL_PREFIX=/usr",
+                "-DLIB_INSTALL_DIR=lib", "-DLIBEXEC_INSTALL_DIR=lib",
+                "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON", "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.kde.org/kconfig.git"
+                }
+            ]
+        },
+        {
+            "name": "kdeclarative",
+            "cmake": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_INSTALL_PREFIX=/usr",
+                "-DLIB_INSTALL_DIR=lib", "-DLIBEXEC_INSTALL_DIR=lib",
+                "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON", "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.kde.org/kdeclarative.git"
+                }
+            ]
+        },
+        {
+            "name": "kwallet",
+            "cmake": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_INSTALL_PREFIX=/usr",
+                "-DLIB_INSTALL_DIR=lib", "-DLIBEXEC_INSTALL_DIR=lib",
+                "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON", "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.kde.org/kwallet.git"
+                }
+            ]
+        },
+        {
+            "name": "qtaccountsservice",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo", "-DCMAKE_INSTALL_PREFIX=/usr",
+                "-DLIB_INSTALL_DIR=lib", "-DLIBEXEC_INSTALL_DIR=lib",
+                "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON", "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://github.com/hawaii-desktop/qtaccountsservice.git"
                 }
             ]
         },
@@ -67,10 +188,25 @@
         },
         {
             "name": "libpapyros",
+            "cmake": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo", "-DCMAKE_INSTALL_PREFIX=/usr",
+                "-DLIB_INSTALL_DIR=lib", "-DLIBEXEC_INSTALL_DIR=lib",
+                "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON", "-DBUILD_TESTING=OFF"
+            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/papyros/libpapyros.git"
+                }
+            ]
+        },
+        {
+            "name": "adwaita-icon-theme",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/adwaita-icon-theme"
                 }
             ]
         },
